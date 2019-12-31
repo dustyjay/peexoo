@@ -1,32 +1,39 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div id="app">
+        <Header />
+        <main>
+            <router-view />
+        </main>
+        <Footer />
     </div>
-    <router-view/>
-  </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+<script>
+import { mapMutations } from 'vuex';
+export default {
+    name: 'app',
+    components: {
+        Header: () => import('./components/Header'),
+        Footer: () => import('./components/Footer')
+    },
+    methods: {
+        ...mapMutations(['SET_WINDOW_WIDTH']),
+        handleResize() {
+            const width = window.innerWidth;
+            if (width < 640) {
+                this.SET_WINDOW_WIDTH('mobile');
+            } else if (width < 968) {
+                this.SET_WINDOW_WIDTH('tablet');
+            } else this.SET_WINDOW_WIDTH('desktop');
+        }
+    },
+    created() {
+        window.addEventListener('resize', this.handleResize);
+        this.handleResize();
     }
-  }
-}
+};
+</script>
+
+<style lang="scss">
+@import './assets/scss/main.scss';
 </style>

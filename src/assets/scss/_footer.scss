@@ -1,0 +1,65 @@
+.footer {
+    &-top {
+        background-color: rgba($color: $primary, $alpha: 0.03);
+    }
+
+    &__links {
+        flex: 0 0 80%;
+        margin-bottom: 2rem;
+        text-align: center;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        @include tablet {
+            text-align: left;
+            flex: 0 0 33.33%;
+            margin-bottom: 0;
+        }
+
+        &--title {
+            margin-bottom: 1.5rem;
+        }
+
+        &--list {
+            li {
+                margin-bottom: .625rem;
+            }
+
+            a {
+                color: $text-color;
+            }
+        }
+
+        &--text {
+            line-height: 1.625rem;
+        }
+
+        &--box {
+            @include mobile {
+                justify-content: center;
+            }
+
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 1.5rem 1rem;
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+
+    &-bottom {
+        background-color: $secondary;
+        color: rgba($color: white, $alpha: 0.75);
+
+        p {
+            text-align: center;
+            padding: 1rem;
+
+            span {
+                color: rgba($color: white, $alpha: 0.5)
+            }
+        }
+    }
+}

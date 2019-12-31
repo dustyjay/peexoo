@@ -1,0 +1,138 @@
+.home {
+    background-color: rgba($color: $primary, $alpha: 0.05);
+    padding-bottom: 2rem;
+
+    &-landing {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 3rem;
+
+        @include desktop {
+            padding-bottom: 5rem;
+        }
+
+        &__bottom {
+            display: flex;
+            position: relative;
+            justify-content: flex-end;
+            background-color: $primary;
+        }
+
+        &__camera {
+            position: absolute;
+            display: block;
+            top: -100px;
+            left: 1rem;
+
+            img {
+                width: 200px;
+                height: 250px;
+                object-fit: cover;
+                border-radius: 4px;
+            }
+        }
+
+        &__menu {
+            display: flex;
+            align-items: center;
+            flex: 0 0 100%;
+
+            @include desktop {
+                flex: 0 0 70%;
+            }
+        }
+
+        &__item {
+            padding: 2rem 1rem;
+            transition: all 200ms ease-in;
+
+            &.active {
+                background-color: $secondary;
+            }
+        }
+
+        &__link {
+            color: white;
+            padding: 2rem 1rem;
+            font-size: 1.325rem;
+        }
+    }
+
+    &-shots {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+
+        &__header {
+            font-size: 2.825rem;
+            vertical-align: sub;
+            flex: 0 0 100%;
+
+            @include tablet {
+                flex: 0 0 45%;
+                max-width: 45%;
+            }
+
+            img {
+                width: 24px;
+                height: 24px;
+                object-fit: contain;
+            }
+        }
+
+        &__buttons {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+
+            @include tablet {
+                flex: 0 0 55%;
+                max-width: 55%;
+                // button{
+                //     width: 50%
+                // }
+            }
+
+            button {
+                flex: 0 0 48%;
+
+                @include desktop {
+                    font-size: 1.5rem;
+                    // min-width: 250px;
+                }
+            }
+        }
+    }
+
+    &__banner {
+        width: 100%;
+        max-height: 700px;
+        height: 80vh;
+        object-fit: cover;
+    }
+}
+
+.calendar {
+    flex: 0 0 100%;
+
+    @include mobile {
+        margin-bottom: 2rem;
+    }
+
+    @include tablet {
+        flex: 0 0 30%;
+        max-width: 30%;
+    }
+
+    &-box {
+        display: flex;
+        max-width: 1100px;
+        flex-wrap: wrap;
+        padding: 1rem;
+        margin: 3rem auto;
+
+        justify-content: space-between;
+    }
+}
