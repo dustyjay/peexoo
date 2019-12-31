@@ -100,7 +100,6 @@ export default {
         }
     },
     mounted() {
-        console.log(cal);
         cal.settings = {
             lang: 'en', // Specify language like: lang: 'pl' or omit setting to use default
             theme: 'ios', // Specify theme like: theme: 'ios' or omit setting to use default
